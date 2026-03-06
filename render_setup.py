@@ -15,7 +15,8 @@ def setup():
     
     # 1. Configure the 'Site' (required for allauth)
     # Render provides RENDER_EXTERNAL_HOSTNAME e.g. "myapp.onrender.com"
-    domain = os.environ.get('RENDER_EXTERNAL_HOSTNAME', 'localhost')
+    # Vercel provides VERCEL_PROJECT_PRODUCTION_URL or VERCEL_URL
+    domain = os.environ.get('RENDER_EXTERNAL_HOSTNAME') or os.environ.get('VERCEL_PROJECT_PRODUCTION_URL') or os.environ.get('VERCEL_URL', 'localhost')
     print(f"Configuring Site ID 1 for domain: {domain}")
     
     # Use update_or_create to ensure ID=1 is correct
