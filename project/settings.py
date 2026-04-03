@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-h)wnzgxhw7snu7uionzw2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'True' or 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['.vercel.app', '.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app', '.onrender.com', '.run.app', '.web.app', '.firebaseapp.com', 'localhost', '127.0.0.1']
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
@@ -109,7 +109,7 @@ DATABASES = {
     'default': dj_database_url.config(
         # Feel free to change this default to your local credentials
         default='postgresql://postgres:12345678@localhost:5432/UserProfileManagement',
-        conn_max_age=600
+        conn_max_age=0
     )
 }
 
@@ -199,7 +199,7 @@ LOGGING = {
     },
 }
 
-CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com', 'https://*.vercel.app']
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com', 'https://*.vercel.app', 'https://*.run.app', 'https://*.web.app', 'https://*.firebaseapp.com']
 if RENDER_EXTERNAL_HOSTNAME:
     CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_EXTERNAL_HOSTNAME}')
 
