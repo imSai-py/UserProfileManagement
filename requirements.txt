@@ -7,3 +7,5 @@ whitenoise==6.11.0
 pillow==11.2.1
 python-dotenv==1.2.1
 requests==2.32.3
+PyJWT==2.8.0
+cryptography==42.0.5
